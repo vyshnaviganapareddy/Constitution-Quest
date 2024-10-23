@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Dashboard</title>
+    <style>
+        body {
+            background-image: url('https://wallpapers.com/images/hd/pastel-blue-background-usjw2q5cnzj01olo.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+
+        .dashboard-container {
+            width: 800px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .level {
+            width: 100px;
+            height: 100px;
+            background-color: #34b0c9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.5em;
+            position: relative;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .level.completed {
+            background-color: #32CD32;
+        }
+
+        .level:hover {
+            transform: scale(1.1);
+        }
+
+        .connector {
+            width: 2px;
+            height: 50px;
+            background-color: #000;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: -1;
+        }
+
+        .connector.vertical {
+            height: 100px;
+            width: 2px;
+        }
+
+        .home-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: #34b0c9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+
+        .home-icon:hover {
+            background-color: #32CD32;
+        }
+
+        .home-icon img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .score-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: #ffdd57;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .score, .streak {
+            color: #000;
+            font-size: 1.5em;
+        }
+
+        .streak span {
+            margin-left: 5px;
+            font-size: 1.5em;
+            color: #ff4500;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="home-icon" onclick="goHome()">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="Home">
+    </div>
+
+    <div class="score-container">
+        <div class="score">
+            Score: <span id="scoreValue">0</span>
+        </div>
+        <div class="streak">
+            Streak: <span id="streakValue">0</span> 🔥
+        </div>
+    </div>
+
+    <div class="dashboard-container">
+        <div class="dashboard">
+            <!-- Use anchor tags to link each level to cards.html -->
+            <a href="cards.html?level=1" class="level" data-level="1">1</a>
+            <div class="connector"></div>
+            <a href="cards.html?level=2" class="level" data-level="2">2</a>
+            <div class="connector"></div>
+            <a href="cards.html?level=3" class="level" data-level="3">3</a>
+            <div class="connector"></div>
+            <a href="cards.html?level=4" class="level" data-level="4">4</a>
+            <div class="connector"></div>
+            <a href="cards.html?level=5" class="level" data-level="5">5</a>
+            <div class="connector vertical"></div>
+            <a href="cards.html?level=6" class="level" data-level="6">6</a>
+            <div class="connector vertical"></div>
+            <a href="cards.html?level=7" class="level" data-level="7">7</a>
+            <div class="connector vertical"></div>
+            <a href="cards.html?level=8" class="level" data-level="8">8</a>
+            <div class="connector vertical"></div>
+            <a href="cards.html?level=9" class="level" data-level="9">9</a>
+            <div class="connector vertical"></div>
+            <a href="cards.html?level=10" class="level" data-level="10">10</a>
+            <div class="connector"></div>
+            <a href="cards.html?level=11" class="level" data-level="11">11</a>
+            <div class="connector"></div>
+            <a href="cards.html?level=12" class="level" data-level="12">12</a>
+            <div class="connector"></div>
+            <a href="cards.html?level=13" class="level" data-level="13">13</a>
+            <div class="connector"></div>
+            <a href="cards.html?level=14" class="level" data-level="14">14</a>
+            <div class="connector"></div>
+            <a href="cards.html?level=15" class="level" data-level="15">15</a>
+        </div>
+    </div>
+
+    <!-- Link to external JavaScript file -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

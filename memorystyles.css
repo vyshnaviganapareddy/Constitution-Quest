@@ -1,0 +1,188 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, #f7e7ce, #d5e1df);
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 500px;
+}
+
+#level,
+#streak {
+    background: #fff;
+    border-radius: 5px;
+    padding: 8px 12px;
+    color: #555;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+#streak::after {
+    content: '✨'; /* Pastel-themed streak icon */
+    margin-left: 5px;
+}
+
+#timer {
+    background: #ffcccb;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 120px);
+    grid-gap: 15px;
+    margin-top: 20px;
+}
+
+.card {
+    width: 120px;
+    height: 120px;
+    perspective: 1000px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card .card-front,
+.card .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+}
+
+.card .card-front {
+    background: #ffecdb; /* Soft pastel peach */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #333;
+    border: 2px solid #f7b7a3;
+}
+
+.card .card-back {
+    background: #e5e3c9; /* Soft pastel green */
+    transform: rotateY(180deg);
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    background: #f1f1f1;
+}
+
+.info-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fefefe;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 350px;
+    text-align: center;
+}
+
+.popup-content {
+    padding: 20px;
+    color: #555;
+    font-size: 16px;
+}
+
+.close-btn {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+    color: #ff5e57;
+}
+
+.dashboard {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.dashboard-level {
+    background: #fff;
+    padding: 12px;
+    border-radius: 10px;
+    margin: 0 5px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #666;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+
+.dashboard-level.completed {
+    background: #a8d5ba; /* Pastel green for completed levels */
+    color: #fff;
+}
+
+.dashboard-level.current {
+    background: #ffd3b6; /* Pastel orange for current level */
+    color: #fff;
+}
+
+.dashboard-level.upcoming {
+    background: #d4a5a5; /* Pastel pink for upcoming levels */
+    color: #fff;
+}
+
+.dashboard-level:hover {
+    transform: scale(1.1);
+    background: #ffc3a0; /* Slightly brighter color on hover */
+    color: #fff;
+}

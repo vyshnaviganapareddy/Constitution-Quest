@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game - Constitution</title>
+    <link rel="stylesheet" href="memorystyles.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="info">
+            <p>Level: <span id="level">1</span></p>
+            <p>Streak: <span id="streak">0</span></p>
+            <p>Timer: <span id="timer">120</span> s</p>
+        </div>
+        <div class="game-board" id="game-board">
+            <!-- Cards will be dynamically added here -->
+        </div>
+    </div>
+    <div class="info-popup" id="info-popup" role="dialog" aria-labelledby="popup-title" aria-hidden="true">
+        <div class="popup-content">
+            <button class="close-btn" id="close-btn" aria-label="Close popup">&times;</button>
+            <h2 id="popup-title">Information</h2>
+            <p id="popup-text"></p>
+        </div>
+    </div>
+    <audio id="flip-sound" src="cardflip.mp3" preload="auto"></audio>
+    <audio id="match-sound" src="matched.mp3" preload="auto"></audio>
+    <audio id="wrong-sound" src="wrong.mp3" preload="auto"></audio>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="memoryscript.js"></script>
+</body>
+</html>

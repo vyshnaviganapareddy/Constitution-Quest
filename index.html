@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Match Card Game</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        /* Gaming Font */
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Bubble Background */
+        .bubble {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            bottom: -100px;
+            animation: rise 20s infinite ease-in;
+        }
+
+        @keyframes rise {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-1000px) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* Slideshow Background */
+        .slideshow-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://store-images.s-microsoft.com/image/apps.54588.14090654178473619.aa2706f7-9244-4d37-b59f-3f87f7589476.6a5a6db1-70ba-4b57-a879-7f9264cd3a40?h=1080');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            /* Ensures background stays fixed */
+            opacity: 1;
+            animation: fadeOut 3s forwards;
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .content {
+            display: none;
+            text-align: center;
+            color: white;
+            z-index: 1;
+            position: relative;
+            background-image: url('https://t4.ftcdn.net/jpg/01/31/15/51/360_F_131155172_4ZVdaT7YF5yJHqircjy59DDxV6aWFds9.jpg');
+            /* New background */
+            background-size: cover;
+            background-position: center;
+            padding-top: 80px;
+            /* Moves the content down by 50px */
+        }
+
+        .hed {
+            font-size: 3.5em;
+            /* Increased title size */
+            margin-top: px;
+            font-family: 'Press Start 2P', cursive;
+            /* Gaming font */
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .rectangle {
+            width: 300px;
+            height: 130px;
+            margin: 30px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            color: #333;
+            /* Darker font color for contrast */
+            background: rgb(255, 255, 255);
+            /* White background for rectangles */
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .rectangle:hover {
+            transform: scale(1.05);
+            box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .level-dashboard {
+            display: none;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .level-dashboard.active {
+            display: block;
+        }
+
+        .level {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+            border-radius: 25px;
+            line-height: 50px;
+            background-color: #ADD8E6;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.2em;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .level.completed {
+            background-color: #32CD32;
+        }
+
+        .streak {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #ff4500;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8em;
+        }
+
+        /* Back Arrow Button */
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            color: #fff;
+            text-decoration: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px 15px;
+            border-radius: 5px;
+            z-index: 10;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Slideshow Background -->
+    <div class="slideshow-background"></div>
+
+    <!-- Bubble Background -->
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+
+    <!-- Back Arrow Button -->
+    <a href="main.html" class="back-button">← Back</a>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h class="hed">Memory Match Card Game</h>
+        <div class="container">
+            <div class="rectangle" onclick="location.href='legislative.html'">Legislative</div>
+            <div class="rectangle" onclick="location.href='judiciary.html'">Judiciary</div>
+            <div class="rectangle" onclick="location.href='executive.html'">Executive</div>
+        </div>
+
+        <div class="container">
+            <div class="rectangle" onclick="showDashboard()">Legislative</div>
+            <div class="rectangle" onclick="showDashboard()">Judiciary</div>
+            <div class="rectangle" onclick="showDashboard()">Executive</div>
+        </div>
+
+        <div class="level-dashboard" id="level-dashboard">
+            <div class="level completed"><span class="streak">3</span>1</div>
+            <div class="level">2</div>
+            <div class="level">3</div>
+            <div class="level">4</div>
+            <div class="level">5</div>
+            <div class="level completed"><span class="streak">2</span>6</div>
+            <div class="level">7</div>
+            <div class="level">8</div>
+            <div class="level">9</div>
+            <div class="level">10</div>
+            <div class="level">11</div>
+            <div class="level">12</div>
+            <div class="level">13</div>
+            <div class="level">14</div>
+            <div class="level">15</div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Show content after 3 seconds (after slideshow)
+        setTimeout(() => {
+            document.querySelector('.content').style.display = 'block';
+        }, 3000);
+
+        // Function to show the dashboard
+        function showDashboard() {
+            document.getElementById('level-dashboard').classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
+

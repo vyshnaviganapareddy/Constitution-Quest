@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive India Map</title>
+    <link rel="stylesheet" href="mapstyles.css">
+</head>
+<body>
+    <a href="main.html" class="back-button">← Back</a>
+    <div class="map-container">
+        <img src="india-color-map.png" alt="India Map" id="india-map">
+        <!-- Example ocations as clickable areas -->
+        <div class="location" id="delhi" style="top: 28%; left: 30%;" onclick="showDescription('delhi')"></div>
+        <div class="location" id="mumbai" style="top: 70%; left: 40%;" onclick="showDescription('mumbai')"></div>
+        <div class="location" id="kolkata" style="top: 45%; left: 69%;" onclick="showDescription('kolkata')"></div>
+    </div>
+
+    <div id="description-box" class="description-box">
+        <button id="close-btn" onclick="closeDescription()">Close</button>
+        <p id="description-text"></p>
+    </div>
+
+    <audio id="voice-over" src=""></audio>
+
+    <script src="mapscript.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Constitution Conversation</title>
+  <link rel="stylesheet" href="senariostyles.css">
+</head>
+
+<body>
+  <a href="main.html" class="back-button">← Back</a>
+  <div class="container">
+    <!-- Left Side for Person 1's Questions -->
+    <div class="left-side">
+      <div class="dialogue-box" id="dialogue1">
+        <p id="person1-message">Hello! Let's start our conversation.</p>
+      </div>
+    </div>
+
+    <!-- Right Side for Options -->
+    <div class="right-side">
+      <div id="options" class="dialogue-box" style="display: none;">
+        <button id="option1"></button>
+        <button id="option2"></button>
+        <button id="option3"></button>
+      </div>
+
+      <!-- Person 2's Responses -->
+      <div class="dialogue-box" id="dialogue2">
+        <p id="person2-message"></p>
+      </div>
+
+      <!-- Next Button -->
+      <button id="next-btn" style="display: none;">Next</button>
+    </div>
+  </div>
+
+  <script src="senscript.js"></script>
+</body>
+
+</html>
